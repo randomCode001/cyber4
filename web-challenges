@@ -10,6 +10,17 @@ server {
 }
 
 server {
+    listen 4445;
+
+    root /home/allenshibu/github/excel-web-ctf/cookie-hide/dist;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+server {
     listen 5555;
 
     root /home/allenshibu/github/excel-web-ctf/html-inspect/src;
