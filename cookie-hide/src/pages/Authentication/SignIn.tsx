@@ -4,6 +4,7 @@ import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
 import { AuthContext } from '../../utils/AuthProvider';
 import { cookieBomb } from '../../utils/CookieBomb';
+import Cookies from 'js-cookie';
 
 const SignIn = () => {
   const [email, setEmail] = useState<string>('');
@@ -19,6 +20,7 @@ const SignIn = () => {
       alert('Please enter your email and password');
     } else {
       cookieBomb('flag');
+      Cookies.set('authenticated', 'true', { expires: 1 });
       setAuthToken('flag');
       navigate('/', { replace: true });
       window.location.reload();

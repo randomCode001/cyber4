@@ -13,7 +13,7 @@ export default function AuthProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const token = Cookies.get('5-token');
+  const token = Cookies.get('authenticated');
   const [authToken, setAuthToken] = useState<string | undefined>(token);
 
   return (
