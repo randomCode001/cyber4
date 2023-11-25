@@ -19,9 +19,9 @@ const SignIn = () => {
     if (email === '' && password === '') {
       alert('Please enter your email and password');
     } else {
-      cookieBomb('flag');
+      cookieBomb('cyber{dfasdfasdf}');
       Cookies.set('authenticated', 'true', { expires: 1 });
-      setAuthToken('flag');
+      setAuthToken('cyber{dfasdfasdf}');
       navigate('/', { replace: true });
       window.location.reload();
       return;
