@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
   res.render("login");
 });
 
-const pool = require("./utils/pg");
 const db = require("./utils/sqlite");
 
 app.post("/", async (req, res) => {
