@@ -33,7 +33,7 @@ app.post("/", async (req, res) => {
             message: error.message,
           });
         }
-
+        console.log({ rows });
         if (rows.length > 0) {
           if (rows[0].role_name === "ROLE_ADMIN")
             return res.status(200).json({
