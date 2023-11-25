@@ -34,6 +34,9 @@ app.post("/", async (req, res) => {
           });
         }
         console.log({ rows });
+        console.log(`SELECT *, roles.name as role_name FROM users
+        LEFT JOIN roles ON users.role_id = roles.id
+        WHERE email = '${email}' AND password = '${password}`);
         if (rows.length > 0) {
           if (rows[0].role_name === "ROLE_ADMIN")
             return res.status(200).json({
