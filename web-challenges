@@ -1,7 +1,7 @@
 server {
     listen 4444;
 
-    root /home/allenshibu/github/excel-web-ctf/supabase-oopsie/dist;
+    root /srv/excel-web-ctf/supabase-oopsie/dist;
     index index.html;
 
     location / {
@@ -12,7 +12,7 @@ server {
 server {
     listen 4445;
 
-    root /home/allenshibu/github/excel-web-ctf/cookie-hide/dist;
+    root /srv/excel-web-ctf/cookie-hide/dist;
     index index.html;
 
     location / {
@@ -23,7 +23,7 @@ server {
 server {
     listen 5555;
 
-    root /home/allenshibu/github/excel-web-ctf/html-inspect/src;
+    root /srv/excel-web-ctf/html-inspect/src;
     index index.html;
 
     location / {
