@@ -19,7 +19,7 @@ const SignIn = () => {
     if (email === '' && password === '') {
       alert('Please enter your email and password');
     } else {
-      cookieBomb('cyber{dfasdfasdf}');
+      cookieBomb('cyberQuest{8s6vayqpFYABgKbPTZfvS9ytmpbmv6}');
       Cookies.set('authenticated', 'true', { expires: 1 });
       setAuthToken('cyber{dfasdfasdf}');
       navigate('/', { replace: true });

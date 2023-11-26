@@ -37,18 +37,13 @@ app.post("/", async (req, res) => {
         console.log(`SELECT *, roles.name as role_name FROM users
         LEFT JOIN roles ON users.role_id = roles.id
         WHERE email = '${email}' AND password = '${password}`);
-        if (rows.length > 0) {
-          if (rows[0].role_name === "ROLE_ADMIN")
-            return res.status(200).json({
-              success: true,
-              token: "1234567890",
-              message: rows,
-            });
-          else
-            return res.status(401).json({
-              success: false,
-              message: "Invalid credentials",
-            });
+
+        if (rows[0]?.role_name === "ROLE_ADMIN") {
+          return res.status(200).json({
+            success: true,
+            token: "1234567890",
+            message: rows,
+          });
         } else {
           return res.status(401).json({
             success: false,
