@@ -13,45 +13,42 @@ app.get("/", (req, res) => {
   res.render("login");
 });
 
-const db = require("./utils/sqlite");
+const pool = require("./utils/pg");
 
 app.post("/", async (req, res) => {
   const { email, password } = req.body;
 
-  console.log({ email, password });
-
   try {
-    db.all(
-      ` SELECT *, roles.name as role_name FROM users
-        LEFT JOIN roles ON users.role_id = roles.id
-        WHERE email = '${email}' AND password = '${password}'`,
-      (error, rows) => {
-        if (error) {
-          console.log(error);
-          return res.status(500).json({
-            success: false,
-            message: error.message,
-          });
-        }
-        console.log({ rows });
-        console.log(`SELECT *, roles.name as role_name FROM users
-        LEFT JOIN roles ON users.role_id = roles.id
-        WHERE email = '${email}' AND password = '${password}`);
-
-        if (rows[0]?.role_name === "ROLE_ADMIN") {
-          return res.status(200).json({
-            success: true,
-            token: "1234567890",
-            message: rows,
-          });
-        } else {
-          return res.status(401).json({
-            success: false,
-            message: "Invalid credentials",
-          });
-        }
-      }
+    const {rows} = await pool.query(
+      ` SELECT *
+        FROM users JOIN roles ON
+        users.role_id = roles.id
+        WHERE email = '${email}' AND password = '${password}'`
     );
+
+    if (rows.length === 0) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid credentials",
+        data: rows,
+      });
+    }
+
+    if(rows[0]?.name === 'ROLE_ADMIN') {
+      return res.status(200).json({
+        success: true,
+        message: "Login successful",
+        data: rows,
+        flag: "asfasfsa"
+      });
+    }
+
+    return res.status(200).json({
+      success: false,
+      message: "Not enough privileges",
+      data: rows,
+    });
+
   } catch (err) {
     console.log(err);
     return res.status(500).json({
