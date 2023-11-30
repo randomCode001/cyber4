@@ -1,42 +1,42 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form id="loginForm" action="/" method="post">
-        <label for="email">email:</label>
-        <input type="text" id="email" name="email" required>
+  </head>
+  <style>
+    *{ font-family: Verdana, Geneva, Tahoma, sans-serif; } div { position:
+    absolute;top: 20%; left:50% ; translate: -50%; } form{ font-size: 1.2rem;
+    padding: 20px; display: flex; flex-direction: column; gap: 15px; box-shadow:
+    0px 4px 8px 0px rgba(0, 0, 0, 0.2); border-radius: 10px;} h1 { text-align:
+    center; } button{ cursor: pointer;font-size: 1.2rem; flex-grow: 1;
+    font-weight: 700; height:35px ; border: none; outline: none;
+    background-color: #3b82f6; color: white; } button:hover{ transition: 0.3s
+    ease-in-out; background-color: #2563eb; } label{ font-size: 1.2rem; }
+    input{font-size: 1.2rem; padding: 5px 10px; }
+  </style>
+  <body>
+    <div>
+      <h1>Login</h1>
+      <form id="loginForm" action="/" method="post">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required />
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" required />
 
         <button type="button" onclick="submitForm()">Login</button>
-    </form>
+      </form>
+    </div>
 
     <script>
-        function submitForm() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            fetch('/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
+      function submitForm() { const email =
+      document.getElementById('email').value; const password =
+      document.getElementById('password').value; fetch('/', { method: 'POST',
+      headers: { 'Content-Type': 'application/json', }, body: JSON.stringify({
+      email, password }), }) .then(response => response.json()) .then(data => {
+      console.log(data); }) .catch(error => { console.error('Error:', error);
+      }); }
     </script>
-</body>
+  </body>
 </html>
