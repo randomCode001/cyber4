@@ -21,10 +21,11 @@ app.post("/", async (req, res) => {
   try {
     const {rows} = await pool.query(
       ` SELECT *
-        FROM users JOIN roles ON
+        FROM users LEFT JOIN roles ON
         users.role_id = roles.id
         WHERE email = '${email}' AND password = '${password}'`
     );
+
 
     if (rows.length === 0) {
       return res.status(401).json({
