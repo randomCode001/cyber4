@@ -1,4 +1,5 @@
 REVOKE ALL PRIVILEGES ON DATABASE excel_db FROM excel;
+REASSIGN OWNED BY excel TO postgres;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS roles;
 DROP DATABASE IF EXISTS excel_db;
@@ -9,6 +10,7 @@ CREATE USER excel WITH PASSWORD 'iloveexcelmec';
     CREATE DATABASE excel_db;
 
     GRANT ALL PRIVILEGES ON DATABASE excel_db TO excel;
+    
 
     \c excel_db;
     SET ROLE excel;
