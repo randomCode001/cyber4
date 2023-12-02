@@ -4,7 +4,7 @@ CREATE USER excel WITH PASSWORD 'iloveexcelmec';
 
     GRANT ALL PRIVILEGES ON DATABASE excel_db TO excel;
 
-    \connect excel_db
+    \c excel_db;
 
     DROP TABLE IF EXISTS users;
     DROP TABLE IF EXISTS  roles;
