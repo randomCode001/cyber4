@@ -1,3 +1,6 @@
+DROP USER IF EXISTS excel;
+DROP DATABASE IF EXISTS excel_db;
+
 CREATE USER excel WITH PASSWORD 'iloveexcelmec';
 
     CREATE DATABASE excel_db;
