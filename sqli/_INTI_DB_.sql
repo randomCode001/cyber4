@@ -22,3 +22,6 @@ CREATE TABLE users
 INSERT INTO roles(id, name)
 VALUES (1, 'ROLE_ADMIN'),
        (2, 'ROLE_DEVELOPER');
+
+INSERT INTO users(id, firstname, lastname, email, password, role_id) values(1, 'developer', 'developer', 'developer@excel.org', '1234', 2);
+
