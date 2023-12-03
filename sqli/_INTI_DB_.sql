@@ -1,19 +1,9 @@
-REVOKE ALL PRIVILEGES ON DATABASE excel_db FROM excel;
-REASSIGN OWNED BY excel TO postgres;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS roles;
-DROP DATABASE IF EXISTS excel_db;
-DROP USER IF EXISTS excel;
-
-CREATE USER excel WITH PASSWORD 'iloveexcelmec';
 
     CREATE DATABASE excel_db;
 
-    GRANT ALL PRIVILEGES ON DATABASE excel_db TO excel;
-    
 
     \c excel_db;
-    SET ROLE excel;
+    
 
     DROP TABLE IF EXISTS users;
     DROP TABLE IF EXISTS  roles;
@@ -22,7 +12,7 @@ CREATE USER excel WITH PASSWORD 'iloveexcelmec';
     (
         id   INTEGER PRIMARY KEY,
         name TEXT NOT NULL UNIQUE
-    );
+    );  
 
     CREATE TABLE users
     (
@@ -41,4 +31,9 @@ CREATE USER excel WITH PASSWORD 'iloveexcelmec';
            (2, 'ROLE_DEVELOPER');
 
 INSERT INTO users(id, firstname, lastname, email, password, role_id) values(1, 'developer', 'developer', 'developer@excel.org', '1234', 2);
+
+CREATE USER excel WITH PASSWORD 'iloveexcelmec';
+
+    GRANT ALL PRIVILEGES ON DATABASE excel_db TO excel;
+
 
