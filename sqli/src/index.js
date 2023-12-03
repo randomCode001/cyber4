@@ -40,7 +40,7 @@ app.post("/", async (req, res) => {
         success: true,
         message: "Login successful",
         data: rows,
-        flag: "asfasfsa"
+        flag: process.env.FLAG
       });
     }
 
