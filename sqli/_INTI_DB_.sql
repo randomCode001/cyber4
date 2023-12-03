@@ -32,8 +32,5 @@
 
 INSERT INTO users(id, firstname, lastname, email, password, role_id) values(1, 'developer', 'developer', 'developer@excel.org', '1234', 2);
 
-CREATE USER excel WITH PASSWORD 'iloveexcelmec';
-
-    GRANT ALL PRIVILEGES ON DATABASE excel_db TO excel;
 
 
