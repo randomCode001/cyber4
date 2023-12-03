@@ -32,5 +32,6 @@
 
 INSERT INTO users(id, firstname, lastname, email, password, role_id) values(1, 'developer', 'developer', 'developer@excel.org', '1234', 2);
 
+ALTER USER postgres WITH PASSWORD 'postgres';
 
 
